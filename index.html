@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title>#CountdownToMars - Badge Maker</title>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+		<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@1,700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="main.js" defer></script>
+	</head>
+
+	<body>
+		<div class="content">
+			<h1 style="font-family: Recursive"><a onclick="sharetweet()" target="_blank"><i id="imageicon" class="fab fa-twitter"></i> #CountdownToMars</a></h1>
+			<div id="countdown"></div>
+			<p>Select a template, add a name and upload a photo (optional)</p>
+			<div id="badges" style="display: inline-flex;"></div>
+			<br>
+			<div id="inputarea" style="filter: opacity(0.5); pointer-events: none; user-select: none; display: inline-grid">
+				<textarea id="inputtext" placeholder="Your Name" maxlength="32" oninput="processBadge(curbadge[0], curbadge[1])"></textarea>
+				<br>
+				<label class="inputlbl" id="uploadlbl">
+					<input style="display: none;" type="file" accept="image/*" id="fileinput" ><i id="imageicon" class="far fa-image" title="only images are allowed"></i> UPLOAD PHOTO</input>
+				</label>
+				<br>
+				<button class="inputlbl" id="downloadlbl" onclick="download()">
+					<i id="imageicon" class="fas fa-file-download"></i> DOWNLOAD
+				</button>
+			</div>
+			<p style="font-size: 140%; text-align: center; color: #ffffff5e">Unofficial Mars Badge Maker, by Salatiel</p>
+		</div>
+		<canvas id="badgeCanvas" style="pointer-events: none; position: fixed; top: 0; left: 0; display: none"></canvas>
+	</body>
+
+</html>
