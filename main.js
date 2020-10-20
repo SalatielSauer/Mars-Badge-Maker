@@ -24,7 +24,7 @@ function importImg(e){
 }
 
 badgesdiv = document.getElementById("badges")
-badgeslist = ["cdtm1.jpg", "cdtm2.png", "cdtm4.jpg", "cdtm5.png", "cdtm3.png"]
+badgeslist = ["cdtm1.jpg", "cdtm2.png", "cdtm4.jpg", "cdtm5.png", "cdtm3.png", "osiris-rex.png"]
 function genBadges() {
 	for (b in badgeslist) {
 		badgesdiv.innerHTML += "<div class=\"badge\" badgeid=\"" + b + "\"><img class=\"badgePreview\"src=\"badges/" + badgeslist[b] + "\"/>\n\t<div class=\"badgeChecker\" onclick=\"selectBadge(" + b + ")\"><i class=\"far fa-check-circle\"></i></div</div>"
@@ -157,6 +157,10 @@ function processBadge(src, id) {
 		drawPhoto(imgwidth/2-700/2, imgheight/2-700/2-160, 700, 700)
 		badgecanvasctx.drawImage(src, 0, 0, badgecanvas.width, badgecanvas.height);
 		writeText(35, 95, "35px Recursive", 20, "white", "left")
+	}
+	if (id == 5) {
+		writeText(imgwidth/2, 880, "50px Lobster", 30, "white", "center")
+		drawPhoto(220, 450, 325, 325)
 	}
 	inputarea.style.filter = "unset";
 	inputarea.style.pointerEvents = "unset";
