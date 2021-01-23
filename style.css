@@ -1,7 +1,7 @@
 a {
 	color: white;
+	cursor: pointer;
 	text-decoration: none;
-    cursor: pointer;
 }
 
 a:hover {
@@ -9,23 +9,31 @@ a:hover {
 }
 
 body {
-    background-image: url(banner.png);
-    background-image: url(banner.png), linear-gradient(0deg, #ff4937 40%, #6b2521 96%);
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode: overlay;
+	background-blend-mode: overlay;
+	background-image: url("images/banner.png");
+	background-image: url("images/banner.png"), linear-gradient(0deg, #ff4937 40%, #6b2521 96%);
+	background-position: left;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 h1 {
-    color: white;
-    font-family: sans-serif;
+	color: white;
+	font-family: sans-serif;
 }
 
 p {
-    color: white;
-    font-family: sans-serif;
-    font-size: 168%;
+	color: white;
+	font-family: sans-serif;
+	font-size: 168%;
+}
+
+video {
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: -1;
 }
 
 .content {
@@ -33,51 +41,76 @@ p {
 }
 
 .badge {
-    margin: 8px;
-    position: relative;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    transition: filter 0.2s, transform 0.2s;
+	align-items: center;
+	display: inline-flex;
+	margin: 8px;
+	justify-content: center;
+	position: relative;
+	transition: filter 0.2s, transform 0.2s;
 }
 
 .badgePreview {
-    height: 256px;
-    border-style: solid;
-    border-color: white;
-    filter: contrast(1.2);
-    background-image: url(badges/background.png);
+	background-image: url(images/background.png);
+	/*border-style: solid;
+	border-color: white;*/
+	border-style: unset;
+	filter: grayscale(1);
+	height: 256px;
 }
 
 .badgeChecker {
+	background-color: #00000000;
+	color: #ffffff1a;
 	cursor: pointer;
-    z-index: 1;
-    position: absolute;
-    font-size: 90px;
-    text-align: center;
-    width: -webkit-fill-available;
-    height: -webkit-fill-available;
-    color: #ffffff1a;
-    background-color: #00000000;
-    transition: background-color 0.5s, color 0.5s;
+	font-size: 90px;
+	height: -webkit-fill-available;
+	position: absolute;
+	text-align: center;
+	transition: background-color 0.5s, color 0.1s, font-size 0.2s;
+	width: -webkit-fill-available;
+	z-index: 1;
+}
 
+.badgeChecker:active {
+    color: #ff36184a !important;
+    font-size: 95px !important;
 }
 
 .badgeChecker:hover {
-	color: white;
 	background-color: #000000ad;
+	color: white;
 }
 
 .inputlbl {
-    cursor: pointer;
-    color: white;
-    font-size: 40px;
-    font-family: sans-serif;
-    background-color: #000000d4;
-    padding: 15;
-    border-radius: 20px;
-    border-style: solid;
-    transition: background-color 0.5s;
+	background-color: #000000d4;
+	border-radius: 20px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: white;
+	color: white;
+	cursor: pointer;
+	font-family: sans-serif;
+	font-size: 36px;
+	padding: 15;
+	transition: background-color 0.5s;
+}
+
+.inputlbl i {float: left;}
+
+#badges {
+	background-color: #000000e0;
+	border-style: groove;
+	border-bottom-style: none;
+	border-color: #f82116;
+	border-right-width: 10px;
+	border-left-width: 10px;
+	float: left;
+	margin-right: 15px;
+	max-height: 430px;
+	max-width: 50%;
+	min-height: 430px;
+	min-width: 50%;
+	overflow: auto;
 }
 
 #uploadlbl:hover {
@@ -94,31 +127,41 @@ p {
 }
 
 #countdown {
-    color: white;
-    font-size: 50px;
-    font-family: fantasy;
     background-color: #0000004d;
     border-style: solid;
+    color: white;
     display: unset;
+    font-size: 50px;
+    font-family: fantasy;
     padding: 7px;
 }
 
 #inputtext {
-    background-color: #000000a6;
-    color: white;
-    resize: none;
-    border-style: solid;
-    border-color: white;
-    border-width: 2px;
-    font-size: larger;
-    font-family: sans-serif;
-    line-height: 2px;
-    padding: 20px;
-    padding-top: 21px;
-    padding-left: 12px;
-    margin: 10px;
-    font-family: 'Lobster';
-    width: 400px;
+	background-color: #000000a6;
+	border-style: solid;
+	border-color: white;
+	border-width: 2px;
+	color: white;
+	font-family: 'Lobster';
+	font-size: xxx-large;
+	height: 100%;
+	line-height: 2px;
+	margin: 10px;
+	padding: 20px;
+	padding-top: 50px;
+	resize: none;
+}
+
+#soundvol {
+	color: #2196f3;
+	display: none;
+	font-size: 50px;
+	margin-left: 15px;
+	user-select: none;
+}
+
+#soundvol:hover {
+	cursor: pointer;
 }
 
 @font-face {
@@ -134,13 +177,14 @@ p {
 ::-webkit-scrollbar-track
 {
     -webkit-box-shadow: inset 0 0 6px rgba(1,1,1,1.3);
-    background-color: #201d1a;
+    background-color: #520400d4;
 }
 
 ::-webkit-scrollbar
 {
     width: 12px;
     background-color: #201d1a;
+    cursor:pointer;
     
 }
 
