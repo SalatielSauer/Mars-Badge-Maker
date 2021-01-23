@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="countdown.js" defer></script>
-		<script src="https://oauth.io/auth/download/latest/oauth.js" defer></script>
+		<!--<script src="https://oauth.io/auth/download/latest/oauth.js" defer></script>-->
 		<script src="badges.js"></script>
 		<script src="main.js" defer></script>
 	</head>
@@ -19,7 +19,7 @@
 			<div style="display: flex;">
 				<div id="badges"></div>
 				<br>
-				<div id="inputarea" style="filter: opacity(0.5); pointer-events: none; user-select: none; display: inline-grid">
+				<div id="inputarea" style="filter: opacity(0.5); pointer-events: none; user-select: none; display: inline-grid; grid-auto-rows: max-content;">
 					<textarea id="inputtext" placeholder="Your Name" maxlength="32"></textarea>
 					<br>
 					<label class="inputlbl" id="uploadlbl">
@@ -29,10 +29,10 @@
 					<button class="inputlbl" id="downloadlbl" onclick="download(); processBadge(curbadge[0], curbadge[1])">
 						<i id="imageicon" class="fas fa-file-download"></i> DOWNLOAD
 					</button>
-					<br>
+					<!--<br>
 					<button class="inputlbl" onclick="tweetBadge()" style="background-color: #002846e0;">
 						<i class="fab fa-twitter"></i> SHARE ON TWITTER
-					</button>
+					</button>-->
 				</div>
 			</div>
 			<p style="font-size: 140%; text-align: center; color: #ffffff5e">Unofficial Mars Badge Maker, by <a href="https://twitter.com/SalatielSauer">Salatiel</a></p>

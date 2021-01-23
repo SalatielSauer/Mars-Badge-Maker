@@ -1,6 +1,6 @@
 const countdown = document.getElementById("countdown");
 const launch = new Date("Wed, 30 July 2020 03:50:00 -0800");
-const landing = new Date("Thur, 22 Jan 2021 23:59:59 -0800");
+const landing = new Date("Thur, 18 Feb 2021 23:59:59 -0800");
 const song = new Audio("https://drive.google.com/u/0/uc?id=1Lt9fM76LeASqqiiMmqoQaCGByPqU81i9&export=download");
 song.loop = true;
 

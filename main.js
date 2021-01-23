@@ -155,6 +155,7 @@ var download = function() {
 	link.click()
 }
 
+/*
 // Experimental Twitter OAuth
 function dataURItoBlob(dataURI) {
 	var arr = dataURI.split(','), mime = arr[0].match(/:(.*?);/)[1];
@@ -175,3 +176,4 @@ function tweetBadge() {
 		}).fail(e=>{console.log("error:", e)});
 	}).fail(e=>{console.log("error:", e)});
 }
+*/
