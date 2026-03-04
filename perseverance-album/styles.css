@@ -1,0 +1,382 @@
+.perseverance-album-section {
+	margin: 28px auto 18px;
+	max-width: 1240px;
+	padding: 24px;
+	border: 2px solid #b6d9ff40;
+	border-radius: 28px;
+	background:
+		radial-gradient(circle at top left, #5cb6ff21, transparent 24%),
+		radial-gradient(circle at top right, #ffffff10, transparent 20%),
+		linear-gradient(180deg, #06111be8, #0f2233e3 55%, #09131ded);
+	box-shadow: 0 16px 40px #00000042;
+	text-align: left;
+}
+
+.perseverance-album-heading {
+	display: flex;
+	align-items: flex-start;
+	gap: 18px;
+	margin-bottom: 18px;
+}
+
+.perseverance-album-heading h2 {
+	margin: 0;
+	color: white;
+	font-family: Recursive;
+	font-size: 42px;
+}
+
+.perseverance-album-heading p {
+	margin: 8px 0 0;
+	font-size: 19px;
+	color: #dcedff;
+}
+
+.perseverance-album-toolbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px;
+	margin-bottom: 14px;
+	padding: 16px 18px;
+	border: 1px solid #cae2ff26;
+	border-radius: 22px;
+	background: #ffffff08;
+}
+
+.perseverance-album-meta {
+	display: grid;
+	gap: 4px;
+}
+
+.perseverance-album-label {
+	color: #bfd7f8;
+	font-family: "Space Mono", monospace;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.perseverance-album-status {
+	color: white;
+	font-family: sans-serif;
+	font-size: 18px;
+}
+
+.perseverance-album-controls {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.perseverance-album-button {
+	padding: 12px 16px;
+	border: 1px solid #c0dcff54;
+	border-radius: 999px;
+	background: #0b1726;
+	color: white;
+	cursor: pointer;
+	font-family: "Space Mono", monospace;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.perseverance-album-button-primary {
+	background: linear-gradient(135deg, #3176b3, #4b9fe7);
+	color: #07131e;
+}
+
+.perseverance-album-button:disabled {
+	opacity: 0.55;
+	cursor: wait;
+}
+
+.perseverance-album-error,
+.perseverance-album-empty,
+.perseverance-album-hero,
+.perseverance-album-card {
+	border: 1px solid #cae1ff24;
+	border-radius: 22px;
+	background: #ffffff0b;
+}
+
+.perseverance-album-error {
+	margin-bottom: 14px;
+	padding: 14px 16px;
+	color: #ffd0c4;
+	font-family: sans-serif;
+	font-size: 16px;
+}
+
+.perseverance-album-empty {
+	padding: 22px;
+	color: #e5f1ff;
+	font-family: sans-serif;
+	font-size: 18px;
+}
+
+.perseverance-album-results {
+	display: grid;
+	gap: 14px;
+}
+
+.perseverance-album-hero {
+	display: grid;
+	grid-template-columns: 1.3fr 1fr;
+	gap: 18px;
+	padding: 22px;
+	background:
+		radial-gradient(circle at 18% 26%, #5a9fe95c, transparent 28%),
+		linear-gradient(135deg, #102337d4, #173b59d9 48%, #08131fe6);
+}
+
+.perseverance-album-kicker {
+	color: #add3ff;
+	font-family: "Space Mono", monospace;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.perseverance-album-hero h3 {
+	margin: 8px 0 0;
+	color: white;
+	font-family: Recursive;
+	font-size: 34px;
+}
+
+.perseverance-album-hero p {
+	margin: 10px 0 0;
+	color: #edf6ff;
+	font-size: 20px;
+}
+
+.perseverance-album-summary {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 12px;
+}
+
+.perseverance-album-summary article {
+	padding: 18px;
+	border-radius: 18px;
+	background: #ffffff10;
+}
+
+.perseverance-album-summary span {
+	display: block;
+	margin-bottom: 6px;
+	color: #c6def9;
+	font-family: "Space Mono", monospace;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.perseverance-album-summary strong {
+	color: white;
+	font-family: sans-serif;
+	font-size: 22px;
+}
+
+.perseverance-album-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 14px;
+}
+
+.perseverance-album-card {
+	overflow: hidden;
+	background: linear-gradient(180deg, #ffffff10, #0000002e);
+}
+
+.perseverance-album-image-link {
+	display: block;
+	aspect-ratio: 1 / 1;
+	background: #040a10;
+}
+
+.perseverance-album-image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.perseverance-album-image-fallback {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	color: #cce3ff;
+	font-family: "Space Mono", monospace;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.perseverance-album-card-copy {
+	padding: 16px;
+}
+
+.perseverance-album-card-topline,
+.perseverance-album-card-footer {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.perseverance-album-card-topline {
+	margin-bottom: 10px;
+	color: #b8d6fb;
+	font-family: "Space Mono", monospace;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.perseverance-album-card h4 {
+	margin: 0 0 10px;
+	color: white;
+	font-family: Recursive;
+	font-size: 22px;
+}
+
+.perseverance-album-card p {
+	margin: 0 0 14px;
+	color: #e8f3ff;
+	font-size: 16px;
+	line-height: 1.45;
+}
+
+.perseverance-album-card-footer {
+	align-items: center;
+	color: #d2e7ff;
+	font-family: sans-serif;
+	font-size: 14px;
+}
+
+.perseverance-album-modal-open {
+	overflow: hidden;
+}
+
+.perseverance-album-modal {
+	position: fixed;
+	inset: 0;
+	z-index: 20;
+}
+
+.perseverance-album-modal-backdrop {
+	position: absolute;
+	inset: 0;
+	background: rgba(1, 7, 14, 0.82);
+	backdrop-filter: blur(6px);
+}
+
+.perseverance-album-modal-dialog {
+	position: relative;
+	display: grid;
+	grid-template-columns: minmax(0, 1.8fr) minmax(320px, 0.9fr);
+	gap: 24px;
+	width: min(1400px, calc(100vw - 48px));
+	max-height: calc(100vh - 48px);
+	margin: 24px auto;
+	padding: 24px;
+	border: 1px solid #d0e6ff3b;
+	border-radius: 28px;
+	background:
+		radial-gradient(circle at top left, #5cb6ff24, transparent 24%),
+		linear-gradient(180deg, #06111bf5, #10263bf2 55%, #09131df5);
+	box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
+
+.perseverance-album-modal-close {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	width: 44px;
+	height: 44px;
+	border: 1px solid #d7eaff4a;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.08);
+	color: white;
+	cursor: pointer;
+	font-size: 28px;
+	line-height: 1;
+}
+
+.perseverance-album-modal-media {
+	min-height: 0;
+	border-radius: 20px;
+	background: #02070b;
+	overflow: auto;
+}
+
+.perseverance-album-modal-media img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.perseverance-album-modal-copy {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-width: 0;
+}
+
+.perseverance-album-modal-copy h3 {
+	margin: 10px 0 12px;
+	color: white;
+	font-family: Recursive;
+	font-size: 34px;
+}
+
+.perseverance-album-modal-copy p {
+	margin: 0 0 18px;
+	color: #eff7ff;
+	font-size: 18px;
+	line-height: 1.6;
+}
+
+@media (max-width: 1000px) {
+	.perseverance-album-heading,
+	.perseverance-album-toolbar,
+	.perseverance-album-hero,
+	.perseverance-album-modal-dialog {
+		flex-direction: column;
+		grid-template-columns: 1fr;
+	}
+
+	.perseverance-album-section {
+		max-width: 100%;
+		min-width: 0;
+		width: 100%;
+	}
+
+	.perseverance-album-summary {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 640px) {
+	.perseverance-album-heading h2 {
+		font-size: 32px;
+	}
+
+	.perseverance-album-hero h3 {
+		font-size: 28px;
+	}
+
+	.perseverance-album-modal-dialog {
+		width: calc(100vw - 20px);
+		max-height: calc(100vh - 20px);
+		margin: 10px;
+		padding: 16px;
+	}
+
+	.perseverance-album-modal-copy h3 {
+		font-size: 28px;
+	}
+}

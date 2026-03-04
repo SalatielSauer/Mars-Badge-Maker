@@ -6,11 +6,14 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link rel="stylesheet" type="text/css" href="frequent-flyer/styles.css">
+		<link rel="stylesheet" type="text/css" href="perseverance-album/styles.css">
 		<script src="countdown.js" defer></script>
 		<!--<script src="https://oauth.io/auth/download/latest/oauth.js" defer></script>-->
 		<script src="badges.js"></script>
 		<script src="frequent-flyer/api.js" defer></script>
 		<script src="frequent-flyer/ui.js" defer></script>
+		<script src="perseverance-album/api.js" defer></script>
+		<script src="perseverance-album/ui.js" defer></script>
 		<script src="main.js" defer></script>
 	</head>
 
@@ -71,6 +74,48 @@
 					</div>
 				</div>
 			</section>
+			<section class="perseverance-album-section" id="perseveranceAlbumSection">
+				<div class="perseverance-album-heading">
+					<div>
+						<h2>Perseverance Raw Images</h2>
+						<p>Fresh frames from Perseverance's latest downlink window, surfaced here as soon as the rover pipeline publishes them ;)</p>
+					</div>
+				</div>
+				<div class="perseverance-album-toolbar">
+					<div class="perseverance-album-meta">
+						<div class="perseverance-album-label">Status</div>
+						<div class="perseverance-album-status" id="perseveranceAlbumStatus">Opening the rover downlink...</div>
+					</div>
+					<div class="perseverance-album-controls">
+						<button class="perseverance-album-button perseverance-album-button-primary" id="perseveranceAlbumLatest" type="button">Refresh Downlink</button>
+					</div>
+				</div>
+				<div class="perseverance-album-error" id="perseveranceAlbumError" hidden></div>
+				<div class="perseverance-album-results" id="perseveranceAlbumResults">
+					<div class="perseverance-album-empty">Linking into the latest Perseverance image stream...</div>
+				</div>
+			</section>
+			<div class="perseverance-album-modal" id="perseveranceAlbumModal" hidden>
+				<div class="perseverance-album-modal-backdrop" data-action="close-modal"></div>
+				<div class="perseverance-album-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="perseveranceAlbumModalTitle">
+					<button class="perseverance-album-modal-close" id="perseveranceAlbumModalClose" type="button" aria-label="Close image viewer">&times;</button>
+					<div class="perseverance-album-modal-media">
+						<img id="perseveranceAlbumModalImage" alt="">
+					</div>
+					<div class="perseverance-album-modal-copy">
+						<div class="perseverance-album-card-topline">
+							<span id="perseveranceAlbumModalInstrument"></span>
+							<span id="perseveranceAlbumModalSol"></span>
+						</div>
+						<h3 id="perseveranceAlbumModalTitle"></h3>
+						<p id="perseveranceAlbumModalDescription"></p>
+						<div class="perseverance-album-card-footer">
+							<span id="perseveranceAlbumModalDate"></span>
+							<a id="perseveranceAlbumModalLink" href="#" target="_blank" rel="noreferrer">Open on NASA</a>
+						</div>
+					</div>
+				</div>
+			</div>
 			<p style="font-size: 140%; text-align: center; color: #ffffff5e">Unofficial Mars Badge Maker, by <a href="https://twitter.com/SalatielSauer">Salatiel</a></p>
 		</div>
 		<canvas id="badgeCanvas" style="pointer-events: none; position: fixed; top: 0; left: 0; display: none"></canvas>
