@@ -1,6 +1,6 @@
 const countdown = document.getElementById("countdown");
-const launch = new Date("Wed, 30 July 2020 03:50:00 -0800");
-const landing = new Date("Thur, 18 Feb 2021 23:59:59 -0800");
+const launch = new Date("2020-07-30T11:50:00Z");
+const landing = new Date("2021-02-18T20:55:00Z");
 const song = new Audio("media/life-on-mars-instrumental.mp3");
 song.loop = true;
 song.preload = "auto";
@@ -69,8 +69,18 @@ async function playSpecial() {
 	updateSoundIcon();
 }
 
+function isPerseveranceLandingAnniversary(date = new Date()) {
+	return date.getUTCMonth() === landing.getUTCMonth()
+		&& date.getUTCDate() === landing.getUTCDate()
+		&& date.getUTCFullYear() >= landing.getUTCFullYear();
+}
+
+function getPerseveranceAnniversaryNumber(date = new Date()) {
+	return date.getUTCFullYear() - landing.getUTCFullYear();
+}
+
 function autoplaySpecial() {
-	if (days <= 0) {
+	if (days <= 0 && song.paused && isPerseveranceLandingAnniversary()) {
 		playSpecial();
 		document.removeEventListener("click", autoplaySpecial);
 	}
@@ -134,8 +144,11 @@ function startCounter() {
 		const marsYearText = formatYearsAndMonths(elapsed.elapsedMarsYears, "year", "years", "month", "months");
 		const earthDayText = formatUnit(elapsed.elapsedEarthDays, "day", "days");
 		const earthYearText = formatYearsAndMonths(elapsed.elapsedEarthYears, "year", "years", "month", "months");
+		const anniversaryText = isPerseveranceLandingAnniversary()
+			? `Happy Land Day, Perseverance! Today marks ${formatUnit(getPerseveranceAnniversaryNumber(), "Earth year", "Earth years")} on Mars.`
+			: "";
 
-		countdown.innerHTML = `we have been persevering for ${marsDayText}!<span class="countdown-equivalent">On Mars, that's equivalent to ${marsYearText}. On Earth, that's ${earthYearText}, or ${earthDayText}.</span>`;
+		countdown.innerHTML = `we have been persevering for ${marsDayText}!<span class="countdown-equivalent">${anniversaryText ? `${anniversaryText} ` : ""}On Mars, that's equivalent to ${marsYearText}. On Earth, that's ${earthYearText}, or ${earthDayText}.</span>`;
 	} else {
 		countdown.textContent = days!=0 ? `${daystext} until landing` : "The landing is today!";
 	}
