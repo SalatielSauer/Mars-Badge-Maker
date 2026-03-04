@@ -78,13 +78,67 @@ function autoplaySpecial() {
 document.addEventListener("click", autoplaySpecial);
 
 var today; var days; var daystext;
+const EARTH_DAY_IN_MS = 1000 * 60 * 60 * 24;
+const MARS_SOL_IN_EARTH_DAYS = 1.02749125;
+const MARS_YEAR_IN_SOLS = 668.6;
+
+function formatCount(value, maximumFractionDigits) {
+	return new Intl.NumberFormat("en-US", {
+		maximumFractionDigits
+	}).format(value);
+}
+
+function formatUnit(value, singular, plural, maximumFractionDigits = 0) {
+	return `${formatCount(value, maximumFractionDigits)} ${value === 1 ? singular : plural}`;
+}
+
+function formatYearsAndMonths(totalYears, yearSingular, yearPlural, monthSingular, monthPlural) {
+	const totalMonths = Math.floor(totalYears * 12);
+	const years = Math.floor(totalMonths / 12);
+	const months = totalMonths % 12;
+	const parts = [];
+
+	if (years > 0) {
+		parts.push(formatUnit(years, yearSingular, yearPlural));
+	}
+
+	if (months > 0 || years === 0) {
+		parts.push(formatUnit(months, monthSingular, monthPlural));
+	}
+
+	return parts.join(years > 0 && months > 0 ? " and " : "");
+}
+
+function getElapsedTimeBreakdown() {
+	const elapsedEarthDays = Math.floor((today - landing.getTime()) / EARTH_DAY_IN_MS);
+	const elapsedMarsSols = Math.floor(elapsedEarthDays / MARS_SOL_IN_EARTH_DAYS);
+	const elapsedMarsYears = elapsedMarsSols / MARS_YEAR_IN_SOLS;
+	const elapsedEarthYears = elapsedEarthDays / 365.25;
+
+	return {
+		elapsedEarthDays,
+		elapsedEarthYears,
+		elapsedMarsSols,
+		elapsedMarsYears
+	};
+}
+
 function startCounter() {
 	today = new Date().getTime();
 	var distance = landing-today;
-	days = Math.floor(distance/(1000*60*60*24));
+	days = Math.floor(distance / EARTH_DAY_IN_MS);
 	daystext = `${Math.abs(days)} ${Math.abs(days)!=1 ? "days" : "day"}`;
-	countdown.innerHTML = days<0 ? `we have been persevering on Mars for ${daystext}!`
-							: days!=0 ? `${daystext} until landing` : "The landing is today!";
+	if (days < 0) {
+		const elapsed = getElapsedTimeBreakdown();
+		const marsDayText = formatUnit(elapsed.elapsedMarsSols, "Mars day", "Mars days");
+		const marsYearText = formatYearsAndMonths(elapsed.elapsedMarsYears, "year", "years", "month", "months");
+		const earthDayText = formatUnit(elapsed.elapsedEarthDays, "day", "days");
+		const earthYearText = formatYearsAndMonths(elapsed.elapsedEarthYears, "year", "years", "month", "months");
+
+		countdown.innerHTML = `we have been persevering for ${marsDayText}!<span class="countdown-equivalent">On Mars, that's equivalent to ${marsYearText}. On Earth, that's ${earthYearText}, or ${earthDayText}.</span>`;
+	} else {
+		countdown.textContent = days!=0 ? `${daystext} until landing` : "The landing is today!";
+	}
 
 	if (days<=0) {
 		document.querySelector("#soundvol").style.display = "unset";
@@ -101,6 +155,8 @@ function writeCountdown(x, y, color) {
 	badgecanvasctx.font = "35px Recursive";
 	badgecanvasctx.textAlign = "center";
 	badgecanvasctx.fillStyle = color;
-	var countdownText = days<0 ? `Persevering for ${daystext}!` : countdown.innerText;
+	var countdownText = days < 0
+		? `Persevering for ${formatUnit(getElapsedTimeBreakdown().elapsedMarsSols, "Mars day", "Mars days")}!`
+		: countdown.innerText;
 	badgecanvasctx.fillText(countdownText, (badgewidth/2-countdownText.length/2)+x, (badgeheight/2)+y)
 }

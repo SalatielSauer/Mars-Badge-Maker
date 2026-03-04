@@ -141,13 +141,23 @@ video {
 }
 
 #countdown {
-    background-color: #0000004d;
-    border-style: solid;
-    color: white;
-    display: unset;
-    font-size: 50px;
-    font-family: fantasy;
-    padding: 7px;
+	    background-color: #0000004d;
+	    border-style: solid;
+	    color: white;
+	    display: inline-flex;
+	    flex-direction: column;
+	    gap: 8px;
+	    font-size: 50px;
+	    font-family: fantasy;
+	    line-height: 1.15;
+	    padding: 10px 14px;
+}
+
+.countdown-equivalent {
+	display: block;
+	font-family: "Space Mono", monospace;
+	font-size: 24px;
+	line-height: 1.35;
 }
 
 #inputtext {
@@ -170,8 +180,14 @@ video {
 	color: #2196f3;
 	display: none;
 	font-size: 50px;
-	margin-left: 15px;
+	position: fixed;
+	right: 20px;
+	top: 20px;
+	background-color: #00000080;
+	border-radius: 999px;
+	padding: 12px;
 	user-select: none;
+	z-index: 3;
 }
 
 #soundvol:hover {
